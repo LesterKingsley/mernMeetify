@@ -1,0 +1,89 @@
+POST http://localhost:7000/meetify/register
+Content-Type: application/json
+
+{
+    "username":"person5@gmail.com",
+    "email":"person5@hotmail.com",
+    "password":"codegeassr17"
+}
+###
+POST http://localhost:7000/meetify/login
+Content-Type: application/json
+
+{
+ 
+    "email":"vincelesterdecastro@gmail.com",
+    "password":"codegeassr17"
+}
+
+###
+GET http://localhost:7000/meetify/user/protect
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGM0Y2I1ZWVkNmE1MmQ2ODMxYmU1YSIsImlhdCI6MTU5ODgzNjA2Mn0.4-l5ITlS4E--w1fIHi0NEn_O-PWhw_iX65q5M-RnfR0
+
+
+
+###
+POST http://localhost:7000/meetify/user/createApmt
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGM0Y2I1ZWVkNmE1MmQ2ODMxYmU1YSIsImlhdCI6MTU5ODgzNjA2Mn0.4-l5ITlS4E--w1fIHi0NEn_O-PWhw_iX65q5M-RnfR0
+
+{
+"participants":["person1@gmail.com","person2@gmail.com","person3@gmail.com","person4@gmail.com"],
+"name":"The Dark Meeting Part 3",
+"descript":"All Hail the Dark World",
+"dateOfMeeting":"July 20 2023"
+}
+
+###
+GET http://localhost:7000/meetify/user/showApmt/5f4c55a7b8662d3100797986
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGM0Y2I1ZWVkNmE1MmQ2ODMxYmU1YSIsImlhdCI6MTU5ODgzNjA2Mn0.4-l5ITlS4E--w1fIHi0NEn_O-PWhw_iX65q5M-RnfR0
+
+###
+GET http://localhost:7000/meetify/user/myApmt
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGYyYjNjY2YxZWE3MmJjMGExNDlmOSIsImlhdCI6MTU5OTEwMDg2NH0.uvPloSPk889bUwNNzg9BUQgMrGWiPCEKEPoBxUMmCy8
+
+###
+POST http://localhost:7000/meetify/user/requestConnection/5f4ca67336d72e17940d327e
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGNhNjliMzZkNzJlMTc5NDBkMzI3ZiIsImlhdCI6MTU5ODg1OTA5MX0.S9_aMSUqkfWoLnq6et4Lnd32npPpOp-EmFUd1YR3O1k
+
+###
+GET http://localhost:7000/meetify/user/showMyRequests
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGNhNjczMzZkNzJlMTc5NDBkMzI3ZSIsImlhdCI6MTU5ODg2MDA1OX0.v7hsS5Fi-4WColzWDIy66kJALkn6lySXm14xM6JXaL8
+
+
+###
+POST  http://localhost:7000/meetify/user/rejectUser/5f4ca69b36d72e17940d327f
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGNhNjczMzZkNzJlMTc5NDBkMzI3ZSIsImlhdCI6MTU5ODg2MTYzNH0.7Bki0mPhtRHt30ruIZ69xVx8Hpg6v2dHet6u-LAoVNQ
+
+
+###
+POST  http://localhost:7000/meetify/user/acceptRequest/5f4ca69b36d72e17940d327f
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGNhNjczMzZkNzJlMTc5NDBkMzI3ZSIsImlhdCI6MTU5ODg2MTYzNH0.7Bki0mPhtRHt30ruIZ69xVx8Hpg6v2dHet6u-LAoVNQ
+
+
+###
+POST  http://localhost:7000/meetify/tokenVerify
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGNhNjczMzZkNzJlMTc5NDBkMzI3ZSIsImlhdCI6MTU5ODg2MTYzNH0.7Bki0mPhtRHt30ruIZ69xVx8Hpg6v2dHet6u-LAoVNQ
+
+
+###
+GET http://localhost:7000/meetify/user/fetchUser
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGNhNjliMzZkNzJlMTc5NDBkMzI3ZiIsImlhdCI6MTU5ODkzNzg0Nn0.zytpgkheZeJugrGb81cJs3VIz6o1olwZ_9DCTtOFZwA
+
+
+
+###
+GET http://localhost:7000/meetify/user/searchUsers/jack
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGNhNjliMzZkNzJlMTc5NDBkMzI3ZiIsImlhdCI6MTU5ODkzNzg0Nn0.zytpgkheZeJugrGb81cJs3VIz6o1olwZ_9DCTtOFZwA
+
+
