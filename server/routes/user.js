@@ -85,14 +85,15 @@ router.get("/viewUser/:email", postParser, tokenValidator, async (req, res) => {
     );
 
     let connectionStatus =
-      (await (user.email === req.params.email
+      user.email == req.params.email
         ? "self"
-        : checkRel.connections.some((id) => id == req.user))) == true
+        : checkRel.connections.some((id) => id == req.user) == true
         ? "connected"
         : checkRel.requests.some((id) => id == req.user) == true
         ? "pending"
         : "connect";
-    console.log(user.email, req.params.email);
+    console.log(user.email === req.params.email);
+    console.log(connectionStatus);
     res.status(200).json({ fetchData, connectionStatus });
   } catch (err) {
     res.status(500).json({ msg: err.response });
