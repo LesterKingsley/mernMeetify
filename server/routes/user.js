@@ -127,6 +127,8 @@ router.post("/createApmt", tokenValidator, postParser, async (req, res) => {
       let idArray = [];
       for (const p of par) {
         let data = await User.findOne({ email: p });
+        if (!data)
+          return res.status(404).json({ msg: `${p} is not a valid user` });
         idArray.push(data._id);
       }
       return Array.from(new Set(idArray));
@@ -353,18 +355,19 @@ router.post("/rejectConnection/:id", tokenValidator, async (req, res) => {
     //   }
     // );
     //remove from the current user
+    console.log(req.params.id);
     const removeRequestA = await User.findByIdAndUpdate(req.user, {
       $pull: { requests: req.params.id },
     });
-    const removeConnectionA = ser.findByIdAndUpdate(req.user, {
+    const removeConnectionA = await User.findByIdAndUpdate(req.user, {
       $pull: { connections: req.params.id },
     });
     //remove from the party of current user
     const removeRequestB = await User.findByIdAndUpdate(req.params.id, {
-      $pull: { requests: req.params.id },
+      $pull: { requests: req.user },
     });
-    const removeConnectionN = ser.findByIdAndUpdate(req.params.id, {
-      $pull: { connections: req.params.id },
+    const removeConnection = await User.findByIdAndUpdate(req.params.id, {
+      $pull: { connections: req.user },
     });
 
     res.status(200).json({ msg: "successfully removed" });
@@ -392,6 +395,20 @@ router.post("/acceptRequest/:id", tokenValidator, async (req, res) => {
       $push: { connections: req.user },
     });
     res.status(200).json({ msg: "connection successful" });
+  } catch (err) {
+    res.status(500).json({ msg: err.message });
+  }
+});
+
+router.delete("/deleteApmt/:id", tokenValidator, async (req, res) => {
+  try {
+    const apmt = await Apmt.findById(req.params.id);
+    if (!apmt) res.status(404).json({ msg: "apmt not found" });
+    if (apmt.createdBy != req.user)
+      return res.status(403).json({ msg: "action unathorized" });
+
+    const deleteApmt = await Apmt.findByIdAndDelete(req.params.id);
+    res.status(200).json({ msg: "deleted successfully" });
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }

@@ -63,7 +63,7 @@ function ViewUser() {
             ></img>
 
             <div className="form-group mt-3">
-              <Connect email={profile.email} status={status} />
+              <Connect email={profile.email} status={status} id={profile._id} />
             </div>
           </div>
           <div className="col-sm-12 col-md-9 align-self-center text-center">

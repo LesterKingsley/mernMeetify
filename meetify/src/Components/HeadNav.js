@@ -29,7 +29,7 @@ function HeadNav() {
       </button>
 
       <div id="mainNav" className="navbar-collapse collapse">
-        <SearchConnections />
+        {Object.keys(user).length !== 0 ? <SearchConnections /> : null}
         <ul className="navbar-nav ml-auto text-center">
           {Object.keys(user).length === 0 ? (
             <>

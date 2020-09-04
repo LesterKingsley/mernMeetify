@@ -12,8 +12,8 @@ Content-Type: application/json
 
 {
  
-    "email":"vincelesterdecastro@gmail.com",
-    "password":"codegeassr17"
+    "email":"partyppl@gmail.com",
+    "password":"partyppl"
 }
 
 ###
@@ -85,5 +85,10 @@ x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGNhNjliMzZkNzJlMT
 GET http://localhost:7000/meetify/user/searchUsers/jack
 Content-Type: application/json
 x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNGNhNjliMzZkNzJlMTc5NDBkMzI3ZiIsImlhdCI6MTU5ODkzNzg0Nn0.zytpgkheZeJugrGb81cJs3VIz6o1olwZ_9DCTtOFZwA
+
+
+###
+DELETE http://localhost:7000/meetify/user/deleteApmt/5f51aca700a0a602f0053a0c
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNTE2ZGUzZTZmNjhjMGM1YzliYjNmYiIsImlhdCI6MTU5OTE4ODIzNX0.Jq1GO9Fmn3Sno0HTWkoeI8pSlPxRDQtatuHUgnyRYTI
 
 
